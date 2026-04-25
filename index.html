@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML To Folder Converter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <h1>HTML Deconstructor 🛠️</h1>
+        <p>Upload file HTML tunggal untuk dipisah menjadi folder CSS & JS</p>
+
+        <div class="upload-section">
+            <input type="file" id="fileInput" accept=".html">
+            <button id="processBtn">Proses & Pisahkan</button>
+        </div>
+
+        <div class="status-info" id="status">Silahkan pilih file...</div>
+
+        <div class="download-grid" id="downloadArea" style="display: none;">
+            <div class="file-card">
+                <span>📄 index.html</span>
+                <button onclick="downloadFile('html')">Unduh HTML</button>
+            </div>
+            <div class="file-card">
+                <span>🎨 style.css</span>
+                <button onclick="downloadFile('css')">Unduh CSS</button>
+            </div>
+            <div class="file-card">
+                <span>⚡ script.js</span>
+                <button onclick="downloadFile('js')">Unduh JS</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
