@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML To Folder Converter</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cloudflare.com"></script>
+    <style>
+        /* CSS tambahan untuk tombol ZIP agar selaras dengan desain */
+        #downloadZipBtn {
+            border: none;
+            border-radius: 8px;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        #downloadZipBtn:hover {
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
 
@@ -33,8 +50,35 @@
                 <button onclick="downloadFile('js')">Unduh JS</button>
             </div>
         </div>
+
+        <div id="zip-section" style="display: none; margin-top: 20px;">
+            <button id="downloadZipBtn" style="background: #e67e22; width: 100%;">
+                🎁 Unduh Semua dalam .ZIP
+            </button>
+        </div>
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        /** * Catatan: Logika JavaScript di bawah ini adalah tambahan untuk memastikan 
+         * zip-section muncul saat file berhasil diproses. 
+         * Tetap pastikan file js/script.js Anda menangani downloadFile().
+         */
+        
+        // Contoh integrasi sederhana agar zip-section muncul bersamaan dengan downloadArea
+        const originalProcessBtn = document.getElementById('processBtn');
+        if (originalProcessBtn) {
+            originalProcessBtn.addEventListener('click', function() {
+                // Memberikan sedikit delay seolah-olah sedang memproses
+                setTimeout(() => {
+                    const downloadArea = document.getElementById('downloadArea');
+                    const zipSection = document.getElementById('zip-section');
+                    if (downloadArea && downloadArea.style.display !== 'none') {
+                        zipSection.style.display = 'block';
+                    }
+                }, 500); 
+            });
+        }
+    </script>
 </body>
 </html>
